@@ -1,4 +1,4 @@
-import data
+from data import Book
 from typing import Optional
 
 # Write your functions for each part in the space below.
@@ -37,12 +37,44 @@ def selection_sort(values:list[int]) -> None:
 
 
 # Part 1
-
-
+def selection_sort_books(books:list[Book]):
+    for i in range(len(books)):
+        minimum = i
+        for j in range(i + 1 ,len(books)):
+            if books[j].title < books[minimum].title:
+                minimum = j
+        if minimum != i:
+            books[i], books[minimum] = books[minimum], books[i]
+    return books
 # Part 2
-
+def swap_case(word: str):
+    result = []
+    for char in word:
+        if char.islower():
+            result.append(char.upper())
+        elif char.isupper():
+            result.append(char.lower())
+        else:
+            result.append(char)
+    return ''.join(result)
 
 # Part 3
-
+def str_translate(word: str, old: str, new:str):
+    result = []
+    for char in word:
+        if char == old:
+            result.append(new)
+        else:
+            result.append(char)
+    return ''.join(result)
 
 # Part 4
+def histogram(input_string: str):
+    counter = {}
+    words = input_string.split()
+    for word in words:
+        if word in counter:
+            counter[word] += 1
+        else:
+            counter[word] = 1
+    return counter
