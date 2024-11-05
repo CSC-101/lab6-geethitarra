@@ -1,4 +1,4 @@
-import data
+from data import Book
 import lab6
 import unittest
 
@@ -64,19 +64,65 @@ class TestCases(unittest.TestCase):
 
 
     # Part 1
+    def test_selection_sort_books(self):
+        books = [Book("John Wick","To Kill a Mockingbird"),
+                 Book("John Wick", "Fancy Nancy"),
+                 Book("John Wick", "Diary of a Wimpy Kid")]
+        expected = ["Diary of a Wimpy Kid","Fancy Nancy","To Kill a Mockingbird"]
+        result = lab6.selection_sort_books(books)
+        sorted = [book.title for book in books]
+        self.assertEqual(expected, sorted)
+
+    def test_selection_sort_books2(self):
+        books = []
+        expected = []
+        result = lab6.selection_sort_books(books)
+        sorted = [book.title for book in books]
+        self.assertEqual(expected, sorted)
 
 
     # Part 2
+    def test_swap_case(self):
+        word =  "Hello"
+        expected = "hELLO"
+        result = lab6.swap_case(word)
+        self.assertEqual(expected, result)
 
+    def test_swap_case2(self):
+        word =  "el!lo"
+        expected = "EL!LO"
+        result = lab6.swap_case(word)
+        self.assertEqual(expected, result)
 
     # Part 3
+    def test_str_translate(self):
+        word = "pinkie"
+        old = "i"
+        new = "y"
+        expected = "pynkye"
+        result = lab6.str_translate(word, old, new)
+        self.assertEqual(result, expected)
 
+    def test_str_translate2(self):
+        word = "calculus"
+        old = "l"
+        new = "z"
+        expected = "cazcuzus"
+        result = lab6.str_translate(word, old, new)
+        self.assertEqual(result, expected)
 
     # Part 4
+    def test_histogram(self):
+        input_string = "pink blue blue"
+        expected = {"pink": 1, "blue": 2}
+        result = lab6.histogram(input_string)
+        self.assertEqual(result, expected)
 
-
-
-
+    def test_histogram2(self):
+        input_string = ""
+        expected = {}
+        result = lab6.histogram(input_string)
+        self.assertEqual(result, expected)
 
 if __name__ == '__main__':
     unittest.main()
