@@ -46,6 +46,8 @@ def selection_sort_books(books:list[Book]):
         if minimum != i:
             books[i], books[minimum] = books[minimum], books[i]
     return books
+#Purpose of this function is to sort books alphabetically by taking in a list of Book object and outputting a list of Book mobjects ordered.
+
 # Part 2
 def swap_case(word: str):
     result = []
@@ -57,6 +59,7 @@ def swap_case(word: str):
         else:
             result.append(char)
     return ''.join(result)
+#Purpose of this function is to take in a string and return a string where all lowercase letters become uppercase and vice versa.
 
 # Part 3
 def str_translate(word: str, old: str, new:str):
@@ -67,6 +70,7 @@ def str_translate(word: str, old: str, new:str):
         else:
             result.append(char)
     return ''.join(result)
+#Purpose of this function is to take in a string and two characters, returning a new string. The new string should swap all instances of the first character with the second inputted character.
 
 # Part 4
 def histogram(input_string: str):
@@ -78,3 +82,4 @@ def histogram(input_string: str):
         else:
             counter[word] = 1
     return counter
+#Purpose of this function is to create a dictionary using the input of a string where all instances of a certain word are counted and documented in the dictionary.
